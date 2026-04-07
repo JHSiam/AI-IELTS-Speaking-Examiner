@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-primary: #5A5A40;
+  --color-brand-secondary: #8E9274;
+  --color-brand-accent: #D4D4C8;
+  --color-bg-warm: #F5F5F0;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-warm text-[#1a1a1a] font-sans antialiased selection:bg-brand-primary/20;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-brand-primary/10 backdrop-blur-md border border-brand-primary/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-brand-primary to-brand-secondary;
+  }
+
+  .atmosphere {
+    background: 
+      radial-gradient(circle at 0% 0%, rgba(90, 90, 64, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(142, 146, 116, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(212, 212, 200, 0.1) 0%, transparent 100%);
+  }
+}
+
+.prose p {
+  @apply mb-4 last:mb-0 leading-relaxed;
+}
+
+.prose ul {
+  @apply list-disc pl-5 mb-4 space-y-1;
+}
+
+.prose li {
+  @apply text-inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-primary/20 rounded-full hover:bg-brand-primary/40 transition-colors;
+}
